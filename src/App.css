@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+video{
+  width: 600p;
+  height: 300;
+}
+
+@media (max-width : 600px){
+  video , audio{
+      max-width: 100%;
+  }
+}
+
+@media (min-width : 601px ) and (max-width : 1200px){
+  video , audio{
+      max-width: 50%;
+  }
+}
