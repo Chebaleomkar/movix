@@ -52,9 +52,11 @@ cd movix
 4.Start the development server:
 
  npm start
-##Contact
 
-Email - omkarchebale0@gmail.com  | 
-linkedIn - https://www.linkedin.com/in/omkar-chebale-8b251726b/
+ 
+###Contact
+
+ ##Email - omkarchebale0@gmail.com  
+ ##linkedIn - https://www.linkedin.com/in/omkar-chebale-8b251726b/
 
 Enjoy your journey through the world of movies and TV shows with Movix!
