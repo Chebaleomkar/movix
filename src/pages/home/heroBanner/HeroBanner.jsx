@@ -6,13 +6,18 @@ import "./HeroBanner.scss";
 import useFetch from "../../../hooks/useFetch";
 import Img from "../../../components/lazyLoadingImage/Img";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
+import toast from "react-hot-toast";
 
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
     const [query, setQuery] = useState("");
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
-    const { data, loading } = useFetch("/movie/upcoming");
+    const { data, loading , error } = useFetch("/movie/upcoming");
+
+    if(error){
+        toast.error("Server is down ! visit again " , {position: 'top-center' , duration : 10*1000})
+    }
 
     useEffect(() => {
         const bg =

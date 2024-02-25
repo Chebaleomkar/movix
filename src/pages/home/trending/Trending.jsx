@@ -3,12 +3,15 @@ import ContentWrapper from '../../../components/contentWrapper/ContentWrapper';
 import SwitchTabs from '../../../components/switchTabs/SwitchTabs';
 import useFetch from '../../../hooks/useFetch';
 import Carousel from '../../../components/carousel/Carousel';
+import toast from 'react-hot-toast';
 
 const Trending = () => {
   const [endpoint ,setEndpoint] = useState("day");
-  const {data ,loading} = useFetch(`/trending/movie/${endpoint}`)
+  const {data ,loading , error} = useFetch(`/trending/movie/${endpoint}`)
 
-console.log( 'trending '+data);
+  if(error){
+    toast.error("Server is down ! visit again " , {position: 'top-center' , duration : 10*1000})
+  }
 
   const onTabChange = (tab) =>{
     setEndpoint(tab === 'Day' ? 'day' : 'week');

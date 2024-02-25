@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { fetchDataFromApi } from './utils/api'
 import { useSelector, useDispatch } from 'react-redux'
 import { getApiConfiguration , getGenres } from './store/homeSlice';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 import Header from './components/Header/Header'
 import Footer from './components/footer/Footer'
@@ -18,6 +20,7 @@ function App() {
   const { url } = useSelector((state) => state.home)
 
   useEffect(() => {
+   
     apiTesting();
     genresCall();
   }, [])
@@ -35,6 +38,7 @@ function App() {
         dispatch(getApiConfiguration(url));
       })
       .catch((err) => {
+       
         console.log(err)
       })
   }
@@ -56,7 +60,10 @@ function App() {
 }
 
 return (
+  <>
+  <Toaster/>
   <BrowserRouter>
+
     <Header />
     <Routes>
 
@@ -68,7 +75,9 @@ return (
 
     </Routes>
     <Footer />
+    
   </BrowserRouter>
+  </>
 );
 }
 
